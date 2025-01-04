@@ -82,18 +82,26 @@ const InventoryTable: React.FC = () => {
 				</TableRow>
 			</TableHead>
 			<TableBody>
-				{items.map((item) => (
-					<TableRow key={item.id}>
-						{fields.map((field) => (
-							<TableCell key={field} sx={{ opacity: !item.isActive ? '0.5' : 'unset' }}>{item[field as keyof typeof item]}</TableCell>
-						))}
-						<TableCell>
-							{actionOptions(item).map(action => (
-								<ActionButton icon={action.icon} key={action.key} onClick={() => handleActions(item, action.key as action)} disabled={action.disabled} />
+				{items.length > 0 ? (
+					items.map((item) => (
+						<TableRow key={item.id}>
+							{fields.map((field) => (
+								<TableCell key={field} sx={{ opacity: !item.isActive ? '0.5' : 'unset' }}>{item[field as keyof typeof item]}</TableCell>
 							))}
+							<TableCell>
+								{actionOptions(item).map(action => (
+									<ActionButton icon={action.icon} key={action.key} onClick={() => handleActions(item, action.key as action)} disabled={action.disabled} />
+								))}
+							</TableCell>
+						</TableRow>
+					))
+				) : (
+					<TableRow>
+						<TableCell colSpan={6} align="center">
+							No data available
 						</TableCell>
 					</TableRow>
-				))}
+				)}
 			</TableBody>
 		</Table>
 	);
