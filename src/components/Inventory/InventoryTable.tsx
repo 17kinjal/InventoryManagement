@@ -66,7 +66,7 @@ const InventoryTable: React.FC = () => {
 				disabled: role === 'user',
 			},
 		];
-	}, []);
+	}, [role]);
 
 	return (
 		<Table sx={{ backgroundColor: 'background.paper' }}>

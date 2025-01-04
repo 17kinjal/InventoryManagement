@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 import { v4 as uuidv4 } from 'uuid';
 import { Header, InventorySummary, InventoryTable, InventoryEditModal } from '@/components';
 import { setInventories } from '@/redux/slices/inventorySlice';
@@ -71,7 +72,13 @@ function App() {
             Inventory stats
           </Typography>
           <InventorySummary />
-          <InventoryTable />
+          {loading ?
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', justifyContent: 'center', minHeight: '50vh' }}>
+              <CircularProgress color='secondary' />
+            </Box>
+            :
+            <InventoryTable />
+          }
         </Box>
       </Box>
       {modal.isModalOpen === MODAL_TYPE.INVENTORY_EDIT && modal.modalOpenedPayload &&
