@@ -23,12 +23,12 @@ This is a web-based Inventory Management System built using **Vite**, **ReactJS*
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/inventory-management.git
+   git clone https://github.com/your-username/InventoryManagement.git
    ```
 
 2. Navigate into the project directory:
    ```bash
-   cd inventory-management
+   cd InventoryManagement
    ```
 
 3. Install dependencies:
